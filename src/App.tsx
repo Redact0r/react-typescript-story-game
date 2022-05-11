@@ -4,11 +4,15 @@ import "./App.css";
 import StoryWindow from "./components/StoryWindow/StoryWindow";
 
 function App() {
-  const handlePrevNextClick = (backOrFwdString: string) => {
+  const handlePrevNextClick = (
+    e: React.MouseEvent<HTMLDivElement>,
+    backOrFwdString: string
+  ) => {
     // if (backOrFwdString === "back") {
     // }
     // if (backOrFwdString === "fwd") {
     // }
+    e.preventDefault();
     console.log(backOrFwdString);
   };
 
@@ -17,7 +21,7 @@ function App() {
       <Arrow
         direction="prev"
         handleClick={(e) =>
-          handlePrevNextClick((e.target as HTMLDivElement).id)
+          handlePrevNextClick(e, (e.target as HTMLDivElement).id)
         }
       />
       <StoryWindow
@@ -28,7 +32,7 @@ function App() {
       <Arrow
         direction="next"
         handleClick={(e) =>
-          handlePrevNextClick((e.target as HTMLDivElement).id)
+          handlePrevNextClick(e, (e.target as HTMLDivElement).id)
         }
       />
     </div>

@@ -3,7 +3,7 @@ import "./Arrow.css";
 
 interface ArrowProps {
   direction: string;
-  handleClick: (event: React.MouseEvent<HTMLDivElement>, id: string) => void;
+  handleClick: (e: React.MouseEvent<HTMLDivElement>, id: string) => void;
 }
 
 const Arrow: FC<ArrowProps> = (props: ArrowProps) => {

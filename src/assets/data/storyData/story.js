@@ -17,4 +17,16 @@ export const story = [
       },
     ],
   },
+  {
+    id: 2,
+    textBody: "I put on the red shirt.",
+  },
+  {
+    id: 3,
+    textBody: "I put on the blue shirt.",
+  },
+  {
+    id: 4,
+    textBody: "I put on the black shirt.",
+  },
 ];
