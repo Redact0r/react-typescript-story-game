@@ -3,17 +3,20 @@ import Arrow from "./components/Arrow/Arrow";
 import "./App.css";
 import StoryWindow from "./components/StoryWindow/StoryWindow";
 
-function App() {
+const App = () => {
+  let currentScene = 0;
   const handlePrevNextClick = (
     e: React.MouseEvent<HTMLDivElement>,
     backOrFwdString: string
   ) => {
-    // if (backOrFwdString === "back") {
-    // }
-    // if (backOrFwdString === "fwd") {
-    // }
+    if (backOrFwdString === "back") {
+      currentScene--;
+    }
+    if (backOrFwdString === "fwd") {
+      currentScene++;
+    }
     e.preventDefault();
-    console.log(backOrFwdString);
+    console.log(currentScene);
   };
 
   return (
@@ -23,20 +26,18 @@ function App() {
         handleClick={(e) =>
           handlePrevNextClick(e, (e.target as HTMLDivElement).id)
         }
+        disabled={currentScene === 0 ? true : false}
       />
-      <StoryWindow
-        text={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis purus elit. In id nibh quis felis porttitor placerat. Nam dignissim dui ac lobortis lobortis. Ut in justo fermentum, pharetra erat sed, imperdiet justo. Nam commodo arcu vitae libero pharetra blandit. Phasellus mollis metus dui, nec elementum magna egestas eu. In dictum, ante et laoreet dapibus, turpis turpis feugiat metus, nec dignissim sapien nulla vitae sapien. Vivamus feugiat dignissim augue, et vestibulum diam tempor vitae. Quisque eu vestibulum felis, non sollicitudin mauris. Aenean ornare nec velit sit amet feugiat. Ut lorem nisi, volutpat vel iaculis vel, iaculis non sapien. Nam at tellus mollis, commodo justo quis, pulvinar lorem. Mauris quis nibh finibus, efficitur nisl ut, pellentesque enim. Morbi sed eros ex. Maecenas consequat ex non mollis pretium."
-        }
-      ></StoryWindow>
+      <StoryWindow currentScene={currentScene}></StoryWindow>
       <Arrow
         direction="next"
         handleClick={(e) =>
           handlePrevNextClick(e, (e.target as HTMLDivElement).id)
         }
+        disabled={false}
       />
     </div>
   );
-}
+};
 
 export default App;

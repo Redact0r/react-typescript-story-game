@@ -1,0 +1,18 @@
+.arrowBtnContainer {
+  height: 100%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 125%;
+}
+
+.arrowBtn {
+  cursor: pointer;
+  caret-color: transparent;
+}
+
+.disabledArrow {
+  pointer-events: none;
+  opacity: 50%;
+}
